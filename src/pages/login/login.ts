@@ -7,7 +7,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
   animations: [ 
     //Login form animation
-/*    trigger('horizontalFlip', [
+    trigger('horizontalFlip', [
       state('in', style({
         transform: 'translate3d(0,0,0)'
       })),
@@ -21,6 +21,7 @@ import { NavController, NavParams } from 'ionic-angular';
     ]),
  
     //For login button
+    /*
     trigger('fadeIn', [
       state('in', style({
         opacity: 1
@@ -34,7 +35,9 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 
 export class LoginPage {
-  private albumData: Array<Object>;
+  private albumData : Array<Object>;
+  private user : string;
+  private password : string;
 
   constructor(public navCtrl: NavController, public navParams : NavParams) {
     this.albumData = navParams.get("albumData");

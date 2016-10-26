@@ -22,9 +22,6 @@ import { LoginPage } from '../login/login';
 
 export class SplashPage {
   logoState: any = "in";
-  cloudState: any = "in";
-  loginState: any = "in";
-  formState: any = "in";
 
   private albumDataUrl: string = "https://s3.amazonaws.com/play-me/playme-albums.json";
   private albumData: Array<Object>;

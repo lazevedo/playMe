@@ -81319,8 +81319,22 @@ var LoginPage = (function () {
     };
     LoginPage = __decorate$109([
         Component({
-            selector: 'page-login',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\login\login.html"*/'<ion-content>\n\n  <ion-row>\n\n    <ion-col>\n\n      <img class="playme-logo" src="assets/images/logo.png" />\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n<!--\n\n    <ion-row>\n\n      <ion-col>\n\n        <ion-list inset [@horizontalFlip]="formState">\n\n          <ion-item>\n\n            <ion-label>Username</ion-label>\n\n            <ion-input type="text"></ion-input>\n\n          </ion-item>\n\n \n\n          <ion-item>\n\n            <ion-label>Password</ion-label>\n\n            <ion-input type="password"></ion-input>\n\n          </ion-item>\n\n \n\n        </ion-list>\n\n      </ion-col>\n\n    </ion-row>\n\n \n\n    <ion-row>\n\n      <ion-col>\n\n        <button ion-button class="login-button" [@fadeIn]="loginState">Login</button>\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n  </div>\n\n --> \n\n</ion-content>\n\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\login\login.html"*/,
-            animations: []
+            selector: 'page-login',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\login\login.html"*/'<ion-content>\n\n  <ion-row>\n\n    <ion-col>\n\n      <img class="playme-logo" src="assets/images/logo.png" />\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n    <ion-col>\n\n      <!--<ion-list inset [@horizontalFlip]="formState">-->\n\n      <ion-list inset>\n\n        <ion-item>\n\n          <ion-input type="text" placeholder="Username"></ion-input>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-input type="password" placeholder="Password"></ion-input>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <button ion-button class="login-button">Login</button>\n\n        </ion-item>\n\n      \n\n        <ion-item>\n\n          <ion-label>Remember Password</ion-label>\n\n          <ion-checkbox color="dark" class="checkbox-square" ng-model="isCheckedCommercial"></ion-checkbox>\n\n        </ion-item>\n\n      </ion-list>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row>\n\n    <ion-col>\n\n      <div class="bottom_bar">\n\n        <button ion-button class="signup-button">Sign Up</button>\n\n      </div>\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\login\login.html"*/,
+            animations: [
+                //Login form animation
+                trigger('horizontalFlip', [
+                    state('in', style({
+                        transform: 'translate3d(0,0,0)'
+                    })),
+                    transition('void => *', [
+                        animate('2000ms 200ms ease-in', keyframes([
+                            style({ transform: 'translate3d(0,2000px,0)', offset: 0 }),
+                            style({ transform: 'translate3d(0,-20px,0)', offset: 0.9 }),
+                            style({ transform: 'translate3d(0,0,0)', offset: 1 })
+                        ]))
+                    ])
+                ]),
+            ]
         }), 
         __metadata$3('design:paramtypes', [NavController, NavParams])
     ], LoginPage);
@@ -81341,9 +81355,6 @@ var SplashPage = (function () {
         this.navCtrl = navCtrl;
         this._http = _http;
         this.logoState = "in";
-        this.cloudState = "in";
-        this.loginState = "in";
-        this.formState = "in";
         this.albumDataUrl = "https://s3.amazonaws.com/play-me/playme-albums.json";
         this.getAlbumData();
     }
