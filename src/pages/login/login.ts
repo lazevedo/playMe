@@ -1,6 +1,5 @@
 import { Component, trigger, state, style, transition, animate, keyframes } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
+import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-login',
@@ -35,9 +34,11 @@ import { Storage } from '@ionic/storage';
 })
 
 export class LoginPage {
-  constructor(public navCtrl: NavController, public storage: Storage) {
-    this.storage.set('user', 'azev');
-    this.storage.set('pass', 'test');
+  private albumData: Array<Object>;
+
+  constructor(public navCtrl: NavController, public navParams : NavParams) {
+    this.albumData = navParams.get("albumData");
+    console.log(this.albumData);
   }
 
   logoState: any = "in";
@@ -46,9 +47,5 @@ export class LoginPage {
   formState: any = "in";
 
   ionViewDidLoad() {
-    this.storage.get('user').then((user) => {
-	  console.log('Me: Hey, ' + user + '! You have a very nice name.');
-	  console.log('You: Thanks! I got it for my birthday.');
-    });
   }
 }
