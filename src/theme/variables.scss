@@ -10,9 +10,12 @@
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
-$text-color:        #000;
-$background-color:  #fff;
-
+$text-color:        		#000;
+$background-color:  		#fff;
+$play-me-color: 			#FF0E72;
+$menu-background-color:		$play-me-color;
+$login-background-color:	$play-me-color;
+$signup-background-color:	$play-me-color;
 
 // Named Color Variables
 // --------------------------------------------------
