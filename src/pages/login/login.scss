@@ -1,5 +1,8 @@
 page-login {
-    .content-md, .content-wp, .content-ios {
-    	background-color: $login-background-color;
-    }
+  .content-md, .content-wp, .content-ios {
+    @include gradient-background($playme-first-gradient-color,
+                                 $playme-gradient-top-stop,
+                                 $playme-second-gradient-color,
+                                 $playme-gradient-bottom-stop);
+  }
 }
