@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { SplashPage } from '../pages/splash/splash';
 import { LoginPage } from '../pages/login/login';
 import { Storage } from '@ionic/storage';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    LoginPage
+    SplashPage,
+    LoginPage,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -17,7 +17,7 @@ import { Storage } from '@ionic/storage';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
+    SplashPage,
     LoginPage
   ],
   providers: [Storage]

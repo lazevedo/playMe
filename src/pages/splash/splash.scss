@@ -1,5 +1,5 @@
 .md, .ios, .wp {
-  page-login {
+  page-splash {
     .scroll-content {
       @include gradient-background($playme-first-gradient-color,
                                    $playme-gradient-top-stop,
@@ -8,6 +8,14 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
+    }
+
+    .alpha-gradient {
+      position: absolute;
+      //top: -50%;
+      top: 0;
+      transform: translateY(-50%);
+      width: 100%;
     }
 
     .playme-logo {
@@ -25,22 +33,26 @@
     //border-radius: 30px !important;
       color:            $input-text-color;
       background-color: $input-background-color;
-      padding-left:     10px !important;
-      margin-bottom:    10px;
+      //padding-left:     10px !important;
+      //margin-bottom:    10px;
       //opacity:          0.7;
       font-size:        0.9em;
     }
+    
+    ion-spinner {
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      * {
+        stroke: white;
+      }
 
-    ion-list {
-      margin: 0;
+      &.spinner-circles circle,
+      &.spinner-bubbles circle,
+      &.spinner-dots circle {
+        fill: white;
+      }
     }
-
-    .login-button {
-  	  color:            #fff;
-  	  background-color: #000;
-      width:            100%;
-      //border-radius:  30px;
-      font-size:        0.9em;
-    }
-  }  
+  }
 }
