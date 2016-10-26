@@ -21171,13 +21171,6 @@ sub {
   font-size: 1.1em;
 }
 
-.md page-login .login-button, .ios page-login .login-button, .wp page-login .login-button {
-  color: #fff;
-  background-color: #000;
-  width: 100%;
-  height: 100%;
-}
-
 .md page-login .bottom-bar, .ios page-login .bottom-bar, .wp page-login .bottom-bar {
   text-align: center;
   height: auto;
