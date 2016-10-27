@@ -5,35 +5,62 @@
     </ion-col>
   </ion-row>
 
-  <ion-row>
-    <ion-col>
-      <!--<ion-list inset [@horizontalFlip]="formState">-->
-      <ion-list inset>
-        <ion-item>
-          <ion-input type="text" placeholder="Username"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-input type="password" placeholder="Password"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <button ion-button color="dark" full>Login</button>
-        </ion-item>
+  <div class="flipper">
+    <ion-row class="front">
+      <ion-col>
+        <ion-list class="login-form" inset [@formFlip]="formState" *ngIf="loginVisible">
+          <ion-item>
+            <ion-input type="text" placeholder="Username"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-input type="password" placeholder="Password"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <button ion-button color="dark" full>Login</button>
+          </ion-item>
       
-        <ion-item>
-          <ion-label>Remember Password</ion-label>
-          <ion-checkbox color="dark" class="checkbox-square" ng-model="isCheckedCommercial"></ion-checkbox>
-        </ion-item>
-      </ion-list>
-    </ion-col>
-  </ion-row>
+          <ion-item class="remember-password">
+            <ion-label>Remember Password</ion-label>
+            <ion-checkbox color="dark" class="checkbox-square" ng-model="isCheckedCommercial"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
 
+    <ion-row class="back">
+      <ion-col>
+        <ion-list class="signup-form" inset [@formFlip]="formState" *ngIf="signupVisible">
+          <ion-item>
+            <ion-input type="text" placeholder="Username"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-input type="password" placeholder="Password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="password" placeholder="Confirm Password"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <button ion-button color="dark" full>Save</button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  
   <ion-row>
     <ion-col>
-      <div class="bottom_bar">
-        <button ion-button class="signup-button">Sign Up</button>
+      <div class="bottom-bar-container">
+        <div class="bottom-bar">
+          <button ion-button class="signup-button" (click)="formFlip()" *ngIf="loginVisible">Sign Up</button>
+          <button ion-button class="cancel-button" (click)="formFlip()" *ngIf="signupVisible">Cancel</button>
+        </div>
       </div>
     </ion-col>
-  </ion-row>
+  </ion-row> 
 </ion-content>

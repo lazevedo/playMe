@@ -7,30 +7,12 @@ import { NavController, NavParams } from 'ionic-angular';
 
   animations: [ 
     //Login form animation
-    trigger('horizontalFlip', [
-      state('in', style({
-        transform: 'translate3d(0,0,0)'
+    trigger('formFlip', [
+      state('flipped', style({
+        transform: 'rotateY(180deg)'
       })),
-      transition('void => *', [
-        animate('2000ms 200ms ease-in', keyframes([
-          style({transform: 'translate3d(0,2000px,0)', offset: 0}),
-          style({transform: 'translate3d(0,-20px,0)', offset: 0.9}),
-          style({transform: 'translate3d(0,0,0)', offset: 1}) 
-        ]))
-      ])
-    ]),
- 
-    //For login button
-    /*
-    trigger('fadeIn', [
-      state('in', style({
-        opacity: 1
-      })),
-      transition('void => *', [
-        style({opacity: 0}),
-        animate('1000ms 2000ms ease-in')
-      ])
-    ])*/
+      transition('* => flipped', animate('400ms ease')),
+    ])
   ]
 })
 
@@ -38,16 +20,22 @@ export class LoginPage {
   private albumData : Array<Object>;
   private user : string;
   private password : string;
+  private formState : any = 'in';
+  private loginVisible : boolean = true;
+  private signupVisible : boolean = false;
+  private loginZLevel : string = '100 !important';
+  private signupZLevel : string = '1 !important';
+
+  formFlip() {
+    this.formState = (this.formState != 'flipped') ? 'flipped' : 'notFlipped';
+    this.loginVisible = (this.loginVisible === true) ? false : true;
+    this.signupVisible = (this.signupVisible === true) ? false : true;
+  }
 
   constructor(public navCtrl: NavController, public navParams : NavParams) {
     this.albumData = navParams.get("albumData");
     console.log(this.albumData);
   }
-
-  logoState: any = "in";
-  cloudState: any = "in";
-  loginState: any = "in";
-  formState: any = "in";
 
   ionViewDidLoad() {
   }

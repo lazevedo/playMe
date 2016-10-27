@@ -21149,12 +21149,17 @@ sub {
   font-size: 1.1em;
 }
 
-.md page-login ion-list > ion-item:nth-last-child(2), .ios page-login ion-list > ion-item:nth-last-child(2), .wp page-login ion-list > ion-item:nth-last-child(2) {
+.md page-login .login-form > ion-item:nth-last-child(2), .ios page-login .login-form > ion-item:nth-last-child(2), .wp page-login .login-form > ion-item:nth-last-child(2) {
   border-bottom: 1px solid #000 !important;
   background-color: #000;
 }
 
-.md page-login ion-list > ion-item:last-child, .ios page-login ion-list > ion-item:last-child, .wp page-login ion-list > ion-item:last-child {
+.md page-login .signup-form > ion-item:last-child, .ios page-login .signup-form > ion-item:last-child, .wp page-login .signup-form > ion-item:last-child {
+  border-bottom: 1px solid #000 !important;
+  background-color: #000;
+}
+
+.md page-login .remember-password, .ios page-login .remember-password, .wp page-login .remember-password {
   padding-left: 0 !important;
   text-align: left;
   font-size: 1em;
@@ -21171,16 +21176,63 @@ sub {
   font-size: 1.1em;
 }
 
-.md page-login .bottom-bar, .ios page-login .bottom-bar, .wp page-login .bottom-bar {
-  text-align: center;
-  height: auto;
-  margin: 0 auto;
-}
-
-.md page-login .signup-button, .ios page-login .signup-button, .wp page-login .signup-button {
+.md page-login .signup-button, .md page-login .cancel-button, .ios page-login .signup-button, .ios page-login .cancel-button, .wp page-login .signup-button, .wp page-login .cancel-button {
   color: #fff;
   background: transparent;
   box-shadow: none;
+}
+
+.md page-login .flipper, .ios page-login .flipper, .wp page-login .flipper {
+  -webkit-perspective: 1000;
+  perspective: 1000;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.md page-login .front, .md page-login .back, .ios page-login .front, .ios page-login .back, .wp page-login .front, .wp page-login .back {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.md page-login .front, .ios page-login .front, .wp page-login .front {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+.md page-login .back, .ios page-login .back, .wp page-login .back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.md page-login .bottom-bar-container, .ios page-login .bottom-bar-container, .wp page-login .bottom-bar-container {
+  z-index: -1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 70%;
+  width: 100%;
+  text-align: center;
+}
+
+.md page-login .bottom-bar, .ios page-login .bottom-bar, .wp page-login .bottom-bar {
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  height: auto;
+  margin: 0 auto;
 }
 
 .md page-splash .scroll-content, .ios page-splash .scroll-content, .wp page-splash .scroll-content {

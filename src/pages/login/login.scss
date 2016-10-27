@@ -5,72 +5,111 @@
                                    $playme-gradient-top-stop,
                                    $playme-second-gradient-color,
                                    $playme-gradient-bottom-stop);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+      display:             flex;
+      flex-direction:      column;
+      overflow:            hidden;
     }
 
     .playme-logo {
-      padding-top:      100px;
-      width:            50%;
-      height:           auto;
-      margin:           0 auto;
+      padding-top:         100px;
+      width:               50%;
+      height:              auto;
+      margin:              0 auto;
     }
 
     ion-row {
-      align-items:      center;
-      text-align:       center;
+      align-items:         center;
+      text-align:          center;
     }
 
     ion-list {
-      padding-top:      50px;
-      margin:           0;
+      padding-top:         50px;
+      margin:              0;
     }
 
     ion-item {
-      text-align:       center;
-      height:           0;
-      margin:           0 auto;
-      width:            90%;
-      color:            $input-text-color;
-      //background-color: $input-background-color;
-      padding-left:     10px !important;
-      margin-bottom:    10px;
-      font-size:        1.1em;
+      text-align:          center;
+      height:              0;
+      margin:              0 auto;
+      width:               90%;
+      color:               $input-text-color;
+      padding-left:        10px !important;
+      margin-bottom:       10px;
+      font-size:           1.1em;
     }
 
-    ion-list > ion-item:nth-last-child(2) {
-      border-bottom:    1px solid #000 !important;
-      background-color: #000;
+    .login-form > ion-item:nth-last-child(2) {
+      border-bottom:       1px solid #000 !important;
+      background-color:    #000;
     }
 
-    ion-list > ion-item:last-child {
-      padding-left:     0 !important;
-      text-align:       left;
-      font-size:        1em;
-      color:            #fff;
-      background-color: transparent;
+    .signup-form > ion-item:last-child {
+      border-bottom:       1px solid #000 !important;
+      background-color:    #000;
+    }
+
+    .remember-password {
+      padding-left:        0 !important;
+      text-align:          left;
+      font-size:           1em;
+      color:               #fff;
+      background-color:    transparent;
     }
 
     .checkbox-md {
-      margin-right: 9px !important;
+      margin-right:        9px !important;
     }
 
     .button {
-      text-transform:   none;
-      font-size:        1.1em;
+      text-transform:      none;
+      font-size:           1.1em;
+    }
+
+    .signup-button, .cancel-button {
+      color:               #fff;
+      background:          transparent;
+      box-shadow:          none;
+    }
+
+    .flipper {
+      perspective:         1000;
+      transform-style:     preserve-3d;
+      position:            relative;
+    }
+
+    .front, .back {
+      transform-style:     preserve-3d;
+      position:            absolute;
+      top:                 0;
+      left:                0;
+    }
+
+    .front {
+      //z-index:             2;
+      transform:           rotateY(0deg);
+    }
+
+    .back {
+      transform:           rotateY(180deg);
+    }
+
+    .bottom-bar-container {
+      z-index:             -1;
+      position:            absolute;
+      bottom:              0;
+      left:                0;
+      display:             flex;
+      align-items:         center;
+      justify-content:     center;
+      height:              70%;
+      width:               100%;
+      text-align:          center;
     }
 
     .bottom-bar {
-      text-align:       center;
-      height:           auto;
-      margin:           0 auto;
-    }
-
-    .signup-button {
-      color:            #fff;
-      background:       transparent;
-      box-shadow:       none;
+      align-self:          flex-end;
+      height:              auto;
+      margin:              0 auto;
     }
   }  
 }
