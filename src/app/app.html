@@ -1,13 +1,13 @@
 <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-content class="menuGradient">
+    <ion-row>
+      <ion-col>
+        <img class="playme-logo" src="assets/images/logo-simple.png" />
+      </ion-col>
+    </ion-row>
 
-  <ion-content>
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <button class="transparentButton" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
     </ion-list>

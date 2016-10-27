@@ -81478,7 +81478,7 @@ var MyApp = (function () {
         __metadata$1('design:type', Nav)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate$1([
-        Component({template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n</ion-menu>\n\n\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\app\app.html"*/
+        Component({template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-content class="menuGradient">\n\n    <ion-row>\n\n      <ion-col>\n\n        <img class="playme-logo" src="assets/images/logo-simple.png" />\n\n      </ion-col>\n\n    </ion-row>\n\n\n\n    <ion-list>\n\n      <button class="transparentButton" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n</ion-menu>\n\n\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\app\app.html"*/
         }), 
         __metadata$1('design:paramtypes', [Platform])
     ], MyApp);

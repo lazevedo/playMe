@@ -1,19 +1,26 @@
-// http://ionicframework.com/docs/v2/theming/
+.menuGradient {
+  @include gradient-background($playme-first-gradient-color,
+                               $playme-gradient-top-stop,
+                               $playme-second-gradient-color,
+                               $playme-gradient-bottom-stop);
+}
 
-
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
-
-//  font-family: 'Roboto', sans-serif;
-//$font-family-base: "Roboto", sans-serif !default;
+.md, .ios, .wp {
+  ion-menu {
+    .scroll-content {
+      .playme-logo {
+      	padding-left:          10px;
+        padding-top:           30px;
+        width:                 50%;
+        height:                auto;
+        margin:                0 auto;
+      }
+    }
+    
+    .transparentButton {
+      background:              transparent !important;
+      border:                  0 !important;
+      color:                   #fff;
+    }
+  }
+}

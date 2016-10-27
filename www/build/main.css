@@ -21106,6 +21106,25 @@ sub {
   }
 }
 
+.menuGradient {
+  background: linear-gradient(#ff1a44 20%, #ff0b7b 100%);
+  background: -webkit-linear-gradient(#ff1a44 20%, #ff0b7b 100%);
+}
+
+.md ion-menu .scroll-content .playme-logo, .ios ion-menu .scroll-content .playme-logo, .wp ion-menu .scroll-content .playme-logo {
+  padding-left: 10px;
+  padding-top: 30px;
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.md ion-menu .transparentButton, .ios ion-menu .transparentButton, .wp ion-menu .transparentButton {
+  background: transparent !important;
+  border: 0 !important;
+  color: #fff;
+}
+
 .md page-login .scroll-content, .ios page-login .scroll-content, .wp page-login .scroll-content {
   background: linear-gradient(#ff1a44 20%, #ff0b7b 100%);
   background: -webkit-linear-gradient(#ff1a44 20%, #ff0b7b 100%);
