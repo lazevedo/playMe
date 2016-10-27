@@ -81082,6 +81082,30 @@ setTimeout(function () {
     }
 }, DEVICE_READY_TIMEOUT);
 
+var __decorate$111 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$5 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var AlbumPage = (function () {
+    function AlbumPage(navCtrl) {
+        this.navCtrl = navCtrl;
+    }
+    AlbumPage.prototype.ionViewDidLoad = function () {
+    };
+    AlbumPage = __decorate$111([
+        Component({
+            selector: 'page-album',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\album\album.html"*/'<ion-content>\n\n</ion-content>\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\album\album.html"*/
+        }), 
+        __metadata$5('design:paramtypes', [NavController])
+    ], AlbumPage);
+    return AlbumPage;
+}());
+
 var ALBUMS_DATA = [
     {
         "cover": "apocalyptica-7th-symphony.jpg",
@@ -81213,7 +81237,7 @@ var ALBUMS_DATA = [
         "cover": "equilibrium-sagas.jpg",
         "title": "Sagas",
         "band_name": "Equilibrium",
-        "rating": 2
+        "rating": 4
     },
     {
         "cover": "equilibrium-waldschrein.jpg",
@@ -81244,22 +81268,34 @@ var __decorate$110 = (undefined && undefined.__decorate) || function (decorators
 var __metadata$4 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var AlbumsPage = (function () {
-    function AlbumsPage(navCtrl, viewCtrl) {
+var TopAlbumsPage = (function () {
+    function TopAlbumsPage(navCtrl) {
         this.navCtrl = navCtrl;
-        this.viewCtrl = viewCtrl;
+        this.topAlbums = [];
+        this.getTopAlbums();
     }
-    AlbumsPage.prototype.ionViewDidLoad = function () {
-        this.viewCtrl.showBackButton(false);
+    TopAlbumsPage.prototype.getTopAlbums = function () {
+        for (var _i = 0, ALBUMS_DATA_1 = ALBUMS_DATA; _i < ALBUMS_DATA_1.length; _i++) {
+            var album = ALBUMS_DATA_1[_i];
+            if (album['rating'] >= 4) {
+                this.topAlbums.push(album);
+            }
+        }
+        console.log(this.topAlbums);
+    };
+    TopAlbumsPage.prototype.ionViewDidLoad = function () {
         console.log(ALBUMS_DATA);
     };
-    AlbumsPage = __decorate$110([
+    TopAlbumsPage.prototype.openAlbum = function (album) {
+        this.navCtrl.push(AlbumPage, { 'album': album });
+    };
+    TopAlbumsPage = __decorate$110([
         Component({
-            selector: 'page-albums',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\albums\albums.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Albums</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\albums\albums.html"*/
+            selector: 'page-top-albums',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\top-albums\top-albums.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Top Albums</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-card *ngFor="let album of topAlbums">\n    <button (click)="openAlbum(album)">\n      <img src="assets/images/album-covers/{{album.cover}}"/>\n    </button>\n\n    <ion-card-content>\n      <ion-card-title>\n        {{album.title}}\n      </ion-card-title>\n      <p>\n        {{album.band_name}}\n      </p>\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\top-albums\top-albums.html"*/
         }), 
-        __metadata$4('design:paramtypes', [NavController, ViewController])
-    ], AlbumsPage);
-    return AlbumsPage;
+        __metadata$4('design:paramtypes', [NavController])
+    ], TopAlbumsPage);
+    return TopAlbumsPage;
 }());
 
 var __decorate$109 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -81308,7 +81344,7 @@ var LoginPage = (function () {
             this.bounce();
         }
         else {
-            this.nav.setRoot(AlbumsPage);
+            this.nav.setRoot(TopAlbumsPage);
         }
     };
     LoginPage.prototype.saveUser = function () {
@@ -81424,28 +81460,29 @@ var SplashPage = (function () {
     return SplashPage;
 }());
 
-var __decorate$111 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+var __decorate$112 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata$5 = (undefined && undefined.__metadata) || function (k, v) {
+var __metadata$6 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var TopAlbumsPage = (function () {
-    function TopAlbumsPage(navCtrl) {
+var AlbumsPage = (function () {
+    function AlbumsPage(navCtrl) {
         this.navCtrl = navCtrl;
     }
-    TopAlbumsPage.prototype.ionViewDidLoad = function () {
+    AlbumsPage.prototype.ionViewDidLoad = function () { };
+    AlbumsPage.prototype.openAlbum = function (album) {
     };
-    TopAlbumsPage = __decorate$111([
+    AlbumsPage = __decorate$112([
         Component({
-            selector: 'page-top-albums',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\top-albums\top-albums.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Top Albums</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\top-albums\top-albums.html"*/
+            selector: 'page-albums',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\albums\albums.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Albums</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\albums\albums.html"*/
         }), 
-        __metadata$5('design:paramtypes', [NavController])
-    ], TopAlbumsPage);
-    return TopAlbumsPage;
+        __metadata$6('design:paramtypes', [NavController])
+    ], AlbumsPage);
+    return AlbumsPage;
 }());
 
 var __decorate$1 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
@@ -81504,7 +81541,8 @@ var AppModule = (function () {
                 SplashPage,
                 LoginPage,
                 AlbumsPage,
-                TopAlbumsPage
+                TopAlbumsPage,
+                AlbumPage
             ],
             imports: [
                 IonicModule.forRoot(MyApp)
@@ -81515,7 +81553,8 @@ var AppModule = (function () {
                 SplashPage,
                 LoginPage,
                 AlbumsPage,
-                TopAlbumsPage
+                TopAlbumsPage,
+                AlbumPage
             ],
             providers: []
         }), 

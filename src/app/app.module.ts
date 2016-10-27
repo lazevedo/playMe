@@ -5,6 +5,7 @@ import { SplashPage } from '../pages/splash/splash';
 import { LoginPage } from '../pages/login/login';
 import { AlbumsPage } from '../pages/albums/albums';
 import { TopAlbumsPage } from '../pages/top-albums/top-albums';
+import { AlbumPage } from '../pages/album/album';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { TopAlbumsPage } from '../pages/top-albums/top-albums';
     SplashPage,
     LoginPage,
     AlbumsPage,
-    TopAlbumsPage
+    TopAlbumsPage,
+    AlbumPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -23,7 +25,8 @@ import { TopAlbumsPage } from '../pages/top-albums/top-albums';
     SplashPage,
     LoginPage,
     AlbumsPage,
-    TopAlbumsPage
+    TopAlbumsPage,
+    AlbumPage
   ],
   providers: []
 })

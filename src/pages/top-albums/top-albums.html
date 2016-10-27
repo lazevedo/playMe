@@ -7,6 +7,19 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <ion-card *ngFor="let album of topAlbums">
+    <button (click)="openAlbum(album)">
+      <img src="assets/images/album-covers/{{album.cover}}"/>
+    </button>
 
+    <ion-card-content>
+      <ion-card-title>
+        {{album.title}}
+      </ion-card-title>
+      <p>
+        {{album.band_name}}
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

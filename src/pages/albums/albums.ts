@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
-import { TopAlbumsPage } from '../top-albums/top-albums';
-import { ALBUMS_DATA } from '../albums/albums-data';
+import { NavController, NavParams } from 'ionic-angular';
+import { AlbumPage } from '../album/album';
+import { ALBUMS_DATA } from './albums-data';
 
 @Component({
   selector: 'page-albums',
@@ -9,13 +9,11 @@ import { ALBUMS_DATA } from '../albums/albums-data';
 })
 
 export class AlbumsPage {
+  constructor(public navCtrl: NavController) {}
 
-  constructor(public navCtrl: NavController, private viewCtrl : ViewController) {
+  ionViewDidLoad() {}
+
+  openAlbum(album) {
     
-  }
-
-  ionViewDidLoad() {
-  	this.viewCtrl.showBackButton(false);
-    console.log(ALBUMS_DATA);
   }
 }

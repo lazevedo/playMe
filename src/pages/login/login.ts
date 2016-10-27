@@ -1,7 +1,7 @@
 import { Component, trigger, state, style, transition, animate, keyframes, ViewChild } from '@angular/core';
 import { NavController, Nav } from 'ionic-angular';
 import { Validators, FormGroup, FormControl, FormBuilder } from '@angular/forms';
-import { AlbumsPage } from '../albums/albums';
+import { TopAlbumsPage } from '../top-albums/top-albums';
 
 @Component({
   selector: 'page-login',
@@ -69,7 +69,7 @@ export class LoginPage {
     if(!this.loginForm.valid) {
       this.bounce();
     } else {
-      this.nav.setRoot(AlbumsPage);
+      this.nav.setRoot(TopAlbumsPage);
     }
   }
 

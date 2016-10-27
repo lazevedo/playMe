@@ -129,7 +129,7 @@ export let ALBUMS_DATA : Array<Object> = [
     "cover" : "equilibrium-sagas.jpg",
     "title" : "Sagas",
     "band_name" : "Equilibrium",
-    "rating" : 2
+    "rating" : 4
   },
   {
     "cover" : "equilibrium-waldschrein.jpg",
