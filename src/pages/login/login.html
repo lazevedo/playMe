@@ -8,45 +8,49 @@
   <div class="flipper">
     <ion-row class="front">
       <ion-col>
-        <ion-list class="login-form" inset [@formFlip]="formState" *ngIf="loginVisible">
-          <ion-item>
-            <ion-input type="text" placeholder="Username"></ion-input>
-          </ion-item>
-  
-          <ion-item>
-            <ion-input type="password" placeholder="Password"></ion-input>
-          </ion-item>
-  
-          <ion-item>
-            <button ion-button color="dark" full>Login</button>
-          </ion-item>
-      
-          <ion-item class="remember-password">
-            <ion-label>Remember Password</ion-label>
-            <ion-checkbox color="dark" class="checkbox-square" ng-model="isCheckedCommercial"></ion-checkbox>
-          </ion-item>
+        <ion-list inset [@formFlip]="formState" *ngIf="loginVisible">
+          <form class="login-form" (ngSubmit)="authUser()" [formGroup]="loginForm">
+            <ion-item>
+              <ion-input type="text" formControlName="loginUser" placeholder="Username"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+              <ion-input type="password" formControlName="loginPassword" placeholder="Password"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+              <button ion-button type="submit" color="dark" full [@bounce]="bounceState">Login</button>
+            </ion-item>
+        
+            <ion-item class="remember-password">
+              <ion-label>Remember Password</ion-label>
+              <ion-checkbox color="dark" class="checkbox-square" ng-model="isCheckedCommercial"></ion-checkbox>
+            </ion-item>
+          </form>
         </ion-list>
       </ion-col>
     </ion-row>
 
     <ion-row class="back">
       <ion-col>
-        <ion-list class="signup-form" inset [@formFlip]="formState" *ngIf="signupVisible">
-          <ion-item>
-            <ion-input type="text" placeholder="Username"></ion-input>
-          </ion-item>
-  
-          <ion-item>
-            <ion-input type="password" placeholder="Password"></ion-input>
-          </ion-item>
+        <ion-list inset [@formFlip]="formState" *ngIf="signupVisible">
+          <form class="signup-form" (ngSubmit)="saveUser()" [formGroup]="signupForm">
+            <ion-item>
+              <ion-input type="text" formControlName="signupUser" placeholder="Username"></ion-input>
+            </ion-item>
 
-          <ion-item>
-            <ion-input type="password" placeholder="Confirm Password"></ion-input>
-          </ion-item>
-  
-          <ion-item>
-            <button ion-button color="dark" full>Save</button>
-          </ion-item>
+            <ion-item>
+              <ion-input type="password" formControlName="signupPassword" placeholder="Password"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="password" formControlName="signupPasswordConfirmation" placeholder="Confirm Password"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <button ion-button color="dark" type="submit" full [@bounce]="bounceState">Save</button>
+            </ion-item>
+          </form>
         </ion-list>
       </ion-col>
     </ion-row>

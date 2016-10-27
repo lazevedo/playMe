@@ -1,22 +1,15 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ALBUM_DATA } from './album-data';
 
-/*
-  Generated class for the Albums page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-albums',
   templateUrl: 'albums.html'
 })
-export class Albums {
-
+export class AlbumsPage {
   constructor(public navCtrl: NavController) {}
 
   ionViewDidLoad() {
-    console.log('Hello Albums Page');
+    console.log(ALBUM_DATA);
   }
-
 }

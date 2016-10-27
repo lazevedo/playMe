@@ -21139,6 +21139,7 @@ sub {
 }
 
 .md page-login ion-item, .ios page-login ion-item, .wp page-login ion-item {
+  border: none !important;
   text-align: center;
   height: 0;
   margin: 0 auto;
@@ -21149,14 +21150,16 @@ sub {
   font-size: 1.1em;
 }
 
+.md page-login .item-inner, .ios page-login .item-inner, .wp page-login .item-inner {
+  border: none !important;
+}
+
 .md page-login .login-form > ion-item:nth-last-child(2), .ios page-login .login-form > ion-item:nth-last-child(2), .wp page-login .login-form > ion-item:nth-last-child(2) {
-  border-bottom: 1px solid #000 !important;
-  background-color: #000;
+  background-color: #000 !important;
 }
 
 .md page-login .signup-form > ion-item:last-child, .ios page-login .signup-form > ion-item:last-child, .wp page-login .signup-form > ion-item:last-child {
-  border-bottom: 1px solid #000 !important;
-  background-color: #000;
+  background-color: #000 !important;
 }
 
 .md page-login .remember-password, .ios page-login .remember-password, .wp page-login .remember-password {

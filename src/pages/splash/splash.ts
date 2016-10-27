@@ -1,5 +1,4 @@
 import { Component, trigger, state, style, transition, animate, keyframes } from '@angular/core';
-import { Http } from '@angular/http';
 import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 
@@ -22,26 +21,12 @@ import { LoginPage } from '../login/login';
 
 export class SplashPage {
   logoState: any = "in";
-
-  private albumDataUrl: string = "https://s3.amazonaws.com/play-me/playme-albums.json";
-  private albumData: Array<Object>;
   
-  private getAlbumData() {
-    this._http.get(this.albumDataUrl).subscribe(
-      res => {
-        this.albumData = res.json().albums;
-      },
-      err => console.log(err)
-    );
-  }
-
-  constructor(public navCtrl: NavController, private _http: Http) {
-    this.getAlbumData();
-  }
+  constructor(public navCtrl: NavController) {}
 
   ionViewDidLoad() {
     setTimeout(function() {
-       this.navCtrl.push(LoginPage, { albumData : this.albumData }, { animate : false });
-   }.bind(this), 3000);
+      this.navCtrl.push(LoginPage, {}, { animate : false });
+    }.bind(this), 3000);
   }
 }

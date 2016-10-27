@@ -3,13 +3,14 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { SplashPage } from '../pages/splash/splash';
 import { LoginPage } from '../pages/login/login';
-import { Storage } from '@ionic/storage';
+import { AlbumsPage } from '../pages/albums/albums';
 
 @NgModule({
   declarations: [
     MyApp,
     SplashPage,
     LoginPage,
+    AlbumsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -18,8 +19,9 @@ import { Storage } from '@ionic/storage';
   entryComponents: [
     MyApp,
     SplashPage,
-    LoginPage
+    LoginPage,
+    AlbumsPage
   ],
-  providers: [Storage]
+  providers: []
 })
 export class AppModule {}

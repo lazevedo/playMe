@@ -28,6 +28,7 @@
     }
 
     ion-item {
+      border:              none !important;
       text-align:          center;
       height:              0;
       margin:              0 auto;
@@ -38,14 +39,16 @@
       font-size:           1.1em;
     }
 
+    .item-inner {
+      border:              none !important;
+    }
+
     .login-form > ion-item:nth-last-child(2) {
-      border-bottom:       1px solid #000 !important;
-      background-color:    #000;
+      background-color:    #000 !important;
     }
 
     .signup-form > ion-item:last-child {
-      border-bottom:       1px solid #000 !important;
-      background-color:    #000;
+      background-color:    #000 !important;
     }
 
     .remember-password {
@@ -85,7 +88,6 @@
     }
 
     .front {
-      //z-index:             2;
       transform:           rotateY(0deg);
     }
 
