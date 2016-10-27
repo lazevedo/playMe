@@ -9,11 +9,27 @@ import { ALBUMS_DATA } from './albums-data';
 })
 
 export class AlbumsPage {
-  constructor(public navCtrl: NavController) {}
+  private albums : Array<Object> = [];
+
+  getAlbums(ev: any) {
+  	this.albums = ALBUMS_DATA;
+  	let searchTerm = ev.target.value;
+    
+    if (searchTerm && searchTerm.trim() != '') {
+  	  this.albums = this.albums.filter((album) => {
+        return (album['band_name'].toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1 
+      	         || album['title'].toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1);
+      })
+  	}
+  }
+
+  constructor(public navCtrl: NavController) {
+  	this.albums = ALBUMS_DATA;
+  }
 
   ionViewDidLoad() {}
 
   openAlbum(album) {
-    
+    this.navCtrl.push(AlbumPage, { 'album' : album });
   }
 }

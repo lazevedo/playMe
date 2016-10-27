@@ -81099,7 +81099,7 @@ var AlbumPage = (function () {
     };
     AlbumPage = __decorate$111([
         Component({
-            selector: 'page-album',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\album\album.html"*/'<ion-content>\n\n</ion-content>\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\album\album.html"*/
+            selector: 'page-album',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\album\album.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title></ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\album\album.html"*/
         }), 
         __metadata$5('design:paramtypes', [NavController])
     ], AlbumPage);
@@ -81472,13 +81472,26 @@ var __metadata$6 = (undefined && undefined.__metadata) || function (k, v) {
 var AlbumsPage = (function () {
     function AlbumsPage(navCtrl) {
         this.navCtrl = navCtrl;
+        this.albums = [];
+        this.albums = ALBUMS_DATA;
     }
+    AlbumsPage.prototype.getAlbums = function (ev) {
+        this.albums = ALBUMS_DATA;
+        var searchTerm = ev.target.value;
+        if (searchTerm && searchTerm.trim() != '') {
+            this.albums = this.albums.filter(function (album) {
+                return (album['band_name'].toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
+                    || album['title'].toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1);
+            });
+        }
+    };
     AlbumsPage.prototype.ionViewDidLoad = function () { };
     AlbumsPage.prototype.openAlbum = function (album) {
+        this.navCtrl.push(AlbumPage, { 'album': album });
     };
     AlbumsPage = __decorate$112([
         Component({
-            selector: 'page-albums',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\albums\albums.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Albums</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\albums\albums.html"*/
+            selector: 'page-albums',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\albums\albums.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Albums</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-searchbar (ionInput)="getAlbums($event)"></ion-searchbar>\n\n\n\n  <ion-card *ngFor="let album of albums">\n\n    <button (click)="openAlbum(album)">\n\n	  <img src="assets/images/album-covers/{{album.cover}}"/>\n\n    </button>\n\n    <ion-card-content>\n\n      <ion-card-title>\n\n        {{album.title}}\n\n      </ion-card-title>\n\n      <p>\n\n        {{album.band_name}}\n\n      </p>\n\n    </ion-card-content>\n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\albums\albums.html"*/
         }), 
         __metadata$6('design:paramtypes', [NavController])
     ], AlbumsPage);
