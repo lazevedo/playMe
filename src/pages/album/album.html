@@ -8,5 +8,45 @@
 </ion-header>
 
 <ion-content>
+  <ion-row>
+    <ion-col>
+      <img src="assets/images/album-covers/{{album.cover}}"/>
+      
+      <ion-list>
+        <ion-item>
+          <ion-range>
+            <ion-label range-left>00:00</ion-label>
+            <ion-label range-right>00:00</ion-label>
+          </ion-range>
+        </ion-item>
 
+        <ion-item>
+          <div class="albumTitle">{{album.title}}</div>
+          <div>{{album.band_name}}</div>
+          <div>
+            <ion-icon name="star-outline"></ion-icon>
+            <ion-icon name="star-outline"></ion-icon>
+            <ion-icon name="star-outline"></ion-icon>
+            <ion-icon name="star-outline"></ion-icon>
+            <ion-icon name="star-outline"></ion-icon>
+          </div>
+        </ion-item>
+
+        <ion-item>
+          <div class="playerControls">
+            <ion-icon name="rewind"></ion-icon>
+            <ion-icon name="play"></ion-icon>
+            <ion-icon name="fastforward"></ion-icon>
+          </div>
+        </ion-item>
+
+        <ion-item>
+          <ion-range>
+            <ion-icon range-left name="volume-down"></ion-icon>
+            <ion-icon range-right name="volume-up"></ion-icon>
+          </ion-range>  
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
 </ion-content>

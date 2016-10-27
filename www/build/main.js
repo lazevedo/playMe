@@ -81092,16 +81092,18 @@ var __metadata$5 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var AlbumPage = (function () {
-    function AlbumPage(navCtrl) {
+    function AlbumPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.album = this.navParams.get("album");
     }
     AlbumPage.prototype.ionViewDidLoad = function () {
     };
     AlbumPage = __decorate$111([
         Component({
-            selector: 'page-album',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\album\album.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title></ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\album\album.html"*/
+            selector: 'page-album',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\album\album.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title></ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-row>\n    <ion-col>\n      <img src="assets/images/album-covers/{{album.cover}}"/>\n      \n      <ion-list>\n        <ion-item>\n          <ion-range>\n            <ion-label range-left>00:00</ion-label>\n            <ion-label range-right>00:00</ion-label>\n          </ion-range>\n        </ion-item>\n\n        <ion-item>\n          <div class="albumTitle">{{album.title}}</div>\n          <div>{{album.band_name}}</div>\n          <div>\n            <ion-icon name="star-outline"></ion-icon>\n            <ion-icon name="star-outline"></ion-icon>\n            <ion-icon name="star-outline"></ion-icon>\n            <ion-icon name="star-outline"></ion-icon>\n            <ion-icon name="star-outline"></ion-icon>\n          </div>\n        </ion-item>\n\n        <ion-item>\n          <div class="playerControls">\n            <ion-icon name="rewind"></ion-icon>\n            <ion-icon name="play"></ion-icon>\n            <ion-icon name="fastforward"></ion-icon>\n          </div>\n        </ion-item>\n\n        <ion-item>\n          <ion-range>\n            <ion-icon range-left name="volume-down"></ion-icon>\n            <ion-icon range-right name="volume-up"></ion-icon>\n          </ion-range>  \n        </ion-item>\n      </ion-list>\n    </ion-col>\n  </ion-row>\n</ion-content>\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\album\album.html"*/
         }), 
-        __metadata$5('design:paramtypes', [NavController])
+        __metadata$5('design:paramtypes', [NavController, NavParams])
     ], AlbumPage);
     return AlbumPage;
 }());
