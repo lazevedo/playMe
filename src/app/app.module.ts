@@ -4,13 +4,15 @@ import { MyApp } from './app.component';
 import { SplashPage } from '../pages/splash/splash';
 import { LoginPage } from '../pages/login/login';
 import { AlbumsPage } from '../pages/albums/albums';
+import { TopAlbumsPage } from '../pages/top-albums/top-albums';
 
 @NgModule({
   declarations: [
     MyApp,
     SplashPage,
     LoginPage,
-    AlbumsPage
+    AlbumsPage,
+    TopAlbumsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -20,7 +22,8 @@ import { AlbumsPage } from '../pages/albums/albums';
     MyApp,
     SplashPage,
     LoginPage,
-    AlbumsPage
+    AlbumsPage,
+    TopAlbumsPage
   ],
   providers: []
 })

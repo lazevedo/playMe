@@ -81082,7 +81082,7 @@ setTimeout(function () {
     }
 }, DEVICE_READY_TIMEOUT);
 
-var ALBUM_DATA = [
+var ALBUMS_DATA = [
     {
         "cover": "apocalyptica-7th-symphony.jpg",
         "title": "7th Symphony",
@@ -81245,17 +81245,19 @@ var __metadata$4 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var AlbumsPage = (function () {
-    function AlbumsPage(navCtrl) {
+    function AlbumsPage(navCtrl, viewCtrl) {
         this.navCtrl = navCtrl;
+        this.viewCtrl = viewCtrl;
     }
     AlbumsPage.prototype.ionViewDidLoad = function () {
-        console.log(ALBUM_DATA);
+        this.viewCtrl.showBackButton(false);
+        console.log(ALBUMS_DATA);
     };
     AlbumsPage = __decorate$110([
         Component({
-            selector: 'page-albums',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\albums\albums.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Albums</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\albums\albums.html"*/
+            selector: 'page-albums',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\albums\albums.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Albums</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\albums\albums.html"*/
         }), 
-        __metadata$4('design:paramtypes', [NavController])
+        __metadata$4('design:paramtypes', [NavController, ViewController])
     ], AlbumsPage);
     return AlbumsPage;
 }());
@@ -81270,9 +81272,10 @@ var __metadata$3 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var LoginPage = (function () {
-    function LoginPage(navCtrl, formBuilder) {
+    function LoginPage(navCtrl, formBuilder, nav) {
         this.navCtrl = navCtrl;
         this.formBuilder = formBuilder;
+        this.nav = nav;
         this.savedUser = 'none';
         this.savedPassword = 'none';
         this.loginUser = new FormControl("", Validators.required);
@@ -81305,7 +81308,7 @@ var LoginPage = (function () {
             this.bounce();
         }
         else {
-            this.navCtrl.push(AlbumsPage);
+            this.nav.setRoot(AlbumsPage);
         }
     };
     LoginPage.prototype.saveUser = function () {
@@ -81376,7 +81379,7 @@ var LoginPage = (function () {
                 ])
             ]
         }), 
-        __metadata$3('design:paramtypes', [NavController, FormBuilder])
+        __metadata$3('design:paramtypes', [NavController, FormBuilder, Nav])
     ], LoginPage);
     return LoginPage;
 }());
@@ -81421,6 +81424,30 @@ var SplashPage = (function () {
     return SplashPage;
 }());
 
+var __decorate$111 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata$5 = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var TopAlbumsPage = (function () {
+    function TopAlbumsPage(navCtrl) {
+        this.navCtrl = navCtrl;
+    }
+    TopAlbumsPage.prototype.ionViewDidLoad = function () {
+    };
+    TopAlbumsPage = __decorate$111([
+        Component({
+            selector: 'page-top-albums',template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\pages\top-albums\top-albums.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Top Albums</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\pages\top-albums\top-albums.html"*/
+        }), 
+        __metadata$5('design:paramtypes', [NavController])
+    ], TopAlbumsPage);
+    return TopAlbumsPage;
+}());
+
 var __decorate$1 = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -81430,6 +81457,7 @@ var __decorate$1 = (undefined && undefined.__decorate) || function (decorators, 
 var __metadata$1 = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+//template: `<ion-nav [root]="rootPage"></ion-nav>`
 var MyApp = (function () {
     function MyApp(platform) {
         this.rootPage = SplashPage;
@@ -81437,10 +81465,20 @@ var MyApp = (function () {
             StatusBar.styleDefault();
             Splashscreen.hide();
         });
+        this.pages = [
+            { title: 'Albums', component: AlbumsPage },
+            { title: 'Top Albums', component: TopAlbumsPage }
+        ];
     }
+    MyApp.prototype.openPage = function (page) {
+        this.nav.setRoot(page.component);
+    };
+    __decorate$1([
+        ViewChild(Nav), 
+        __metadata$1('design:type', Nav)
+    ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate$1([
-        Component({
-            template: "<ion-nav [root]=\"rootPage\"></ion-nav>"
+        Component({template:/*ion-inline-start:"D:\workspace\ffit\playMe\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>Menu</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n</ion-menu>\n\n\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"D:\workspace\ffit\playMe\src\app\app.html"*/
         }), 
         __metadata$1('design:paramtypes', [Platform])
     ], MyApp);
@@ -81465,7 +81503,8 @@ var AppModule = (function () {
                 MyApp,
                 SplashPage,
                 LoginPage,
-                AlbumsPage
+                AlbumsPage,
+                TopAlbumsPage
             ],
             imports: [
                 IonicModule.forRoot(MyApp)
@@ -81475,7 +81514,8 @@ var AppModule = (function () {
                 MyApp,
                 SplashPage,
                 LoginPage,
-                AlbumsPage
+                AlbumsPage,
+                TopAlbumsPage
             ],
             providers: []
         }), 

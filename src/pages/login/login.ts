@@ -1,5 +1,5 @@
-import { Component, trigger, state, style, transition, animate, keyframes } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, trigger, state, style, transition, animate, keyframes, ViewChild } from '@angular/core';
+import { NavController, Nav } from 'ionic-angular';
 import { Validators, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { AlbumsPage } from '../albums/albums';
 
@@ -69,7 +69,7 @@ export class LoginPage {
     if(!this.loginForm.valid) {
       this.bounce();
     } else {
-      this.navCtrl.push(AlbumsPage);
+      this.nav.setRoot(AlbumsPage);
     }
   }
 
@@ -103,7 +103,7 @@ export class LoginPage {
     }
   }
 
-  constructor(public navCtrl: NavController, private formBuilder: FormBuilder) {}
+  constructor(public navCtrl: NavController, private formBuilder: FormBuilder, private nav : Nav) {}
 
   ionViewDidLoad() {
      this.loginForm = this.formBuilder.group({
